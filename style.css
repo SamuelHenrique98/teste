@@ -1,0 +1,87 @@
+@media screen and (min-width: 350px){
+
+    #idScreen {
+        width : 95vw;
+        height : 97vh; 
+        border: 1px solid #000;
+    }
+
+    #idPlayers, #idMatch, #idHand, #idOptions {
+        width: 100%;
+    }
+ 
+    #idPlayers{
+        background-color: aqua;
+        height: 15%;
+    }
+
+    #idMatch{
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #idCardsOpponent, #idFields, #idCardsPlayer{
+        height: 33%;
+    }
+
+    #idCardsOpponent{
+        background-color: blue;
+    }
+
+    #idFields{
+        background-color: yellow;
+    }
+
+    #idCardsPlayer{
+        background-color: tomato;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .local{
+        background-color: aliceblue;
+        width: 30%;
+        height: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .position{
+        background-color: chartreuse;
+        width: 40%;
+        height: 40%;
+
+    }
+
+    #idHand{
+        background-color:blueviolet;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .card{
+        background-color: aliceblue;
+        width: 13%;
+        height: 90%;
+    }
+
+    #idOptions{
+        background-color: greenyellow;
+        height: 10%;
+    }
+
+    #card {
+        width: 30px;
+        height: 50px;
+        background-color: #000;
+        z-index: 1;
+    }
+
+}
