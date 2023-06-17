@@ -1,62 +1,332 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+  <head>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+    body{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
 
-    <link rel="stylesheet" href="style.css">
-    <script src="move.js"></script>
-</head>
-<body>
+    #idScreen {
+        width : 95vw;
+        height : 95vh; 
+        border: 1px solid #000;
+    }
+
+    #idPlayers, #idMatch, #idHand, #idOptions {
+        width: 100%;
+    }
+
+    #idPlayers{
+        background-color: aqua;
+        height: 15%;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    #avatarPlayer, #plusUltra, #avatarOpponent{
+        height: 70%;
+        width: 32%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #avatarPlayer{
+        color: antiquewhite;
+        font-size: 70px;
+        background-color: blue;
+    }
+
+    #plusUltra{
+        display: flex;
+        text-align: center;
+        font-size: 100px;
+        background-color: aqua;
+    }
+
+    #avatarOpponent{
+        color: antiquewhite;
+        font-size: 70px;
+        background-color: red;
+    }
+
+    #idMatch{
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #idCardsOpponent, #idFields, #idCardsPlayer{
+        height: 33%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .local, .position{
+        width: 30%;
+        height: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #idFields{
+        background-color: yellow;
+    }
+
+    .local{
+        background-color: aliceblue;
+    }
+
+
+    #idCardsOpponent, #idCardsPlayer{
+        background-color: tomato;
+    }
+
+    .position{
+        background-color: aliceblue;
+    }
+
+    #idHand{
+        background-color:blueviolet;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .card{
+        background-color: aliceblue;
+        /* width: 13%;
+        height: 90%; */
+        width: 48px;
+        height: 74px;
+    }
+
+    #card {
+        width: 30px;
+        height: 50px;
+        background-color: #000;
+        z-index: 1;
+    }
+
+    .dropbox{
+        height:100px;
+        width:100px;
+        border:1px solid #000;
+        border-radius:10px;
+        float:left;
+        margin:10px;
+    }
+    
+    #dragbox{
+        width: 48px;
+        height: 74px;
+        border:1px solid #000;
+        border-radius:10px;
+        float:left;
+        margin:10px;
+        background:#31D2B1;
+    }
+
+    #idOptions{
+        background-color: greenyellow;
+        height: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        color: antiquewhite;
+        text-shadow:#000 5px -5px, #000 -5px 5px, #000 5px 5px, #000 -5px -5px
+    }
+    
+    #backOff, #energy{
+        display: flex;
+        align-items: center;
+    }
+    
+    #backOff, #finish{
+        height: 70%;
+        width: 32%;
+    }
+    
+    #backOff{
+        font-size: 70px;
+        padding-left: 10px;
+        background-color: red;
+    }
+
+    #energy{
+        font-size: 120px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        height: 180px;
+        width: 180px;
+        background-color: aqua;
+    }
+
+    #finish{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 50px;
+        background-color: rebeccapurple;
+        align-items: flex-end;
+    }
+
+    p{
+        padding: 0 7%;
+    }
+
+    </style>
+  </head>
+  <body ontouchstart="dragStart(event)" ontouchmove="drag(event)" ontouchend="drop(event)">
     <div id="idScreen">
-        <div id="idPlayers"></div>
+        <div id="idPlayers">
+            <div id="avatarPlayer">
+                EU
+            </div>
+            <div id="plusUltra">Plus Ultra</div>
+            <div id="avatarOpponent">
+                VOCÊ
+            </div>
+        </div>
         <div id="idMatch">
-            <div id="idCardsOpponent"></div>
-            <div id="idFields"></div>
+            <div id="idCardsOpponent">
+                <div id="position-1" class="position">
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                </div>
+                <div id="position-2" class="position">
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                </div>
+                <div id="position-3" class="position">
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                    <div class="dropbox"></div>
+                </div>
+            </div>
+            <div id="idFields">
+                <div id="local-1" class="local"></div>
+                <div id="local-2" class="local"></div>
+                <div id="local-3" class="local"></div>
+            </div>
             <div id="idCardsPlayer">
-                <div class="local">
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
+                <div id="position-1" class="position">
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
                 </div>
-                <div class="local">
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
+                <div id="position-2" class="position">
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
                 </div>
-                <div class="local">
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
-                    <div class="position dropzone"></div>
+                <div id="position-3" class="position">
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
+                    <div id="dropbox" class="dropbox"></div>
                 </div>
-
             </div>
         </div>
         <div id="idHand">
-            <div id="card-1" class="card" ontouchstart="teste()" draggable="true">1</div>
-            <div id="card-2" class="card" draggable="true">2</div>
-            <div id="card-3" class="card" draggable="true">3</div>
-            <div id="card-4" class="card" draggable="true">4</div>
-            <div id="card-5" class="card" draggable="true">5</div>
-            <div id="card-6" class="card" draggable="true">6</div>
-            <div id="card-7" class="card" draggable="true">7</div>
+            <div id="dragbox" draggable="true"></div>
         </div>
-        <div id="idOptions"></div>
+        <div id="idOptions">
+            <div id="backOff">
+                <p>Recuar</p>
+            </div>
+            <div id="energy">
+                <p>1</p>
+            </div>
+            <div id="finish">
+                <p>Terminar</p>
+                <p>1/6</p>
+            </div>
+        </div>
     </div>
-
     <script>
-        // let tela = document.querySelector('div#idTela')
+        var dropbox = document.querySelectorAll('#dropbox');
+        var drp = [];
+        let i = 0;
 
-        // let card = document.createElement("div")
-        // card.setAttribute("id", "card")
+        var dragbox = document.querySelector('#dragbox')
+        var dragIni = dragbox.getBoundingClientRect()
+
+        dropbox.forEach(element => {
+            drp[i] = element.getBoundingClientRect()
+            i++;
+        });
         
-        // tela.appendChild(card)
-        // console.log(tela);
+        var drg , drgT , drgL , drgB , drgR ;
+        var el , avail ;
+
+        function dragStart(evt){
+            // evt = <div id="dragbox" draggable="true"></div>
+            
+            el = evt.target ;
+            if(el.getAttribute('draggable') == 'true'){
+                avail = 'available';
+            } else {
+                avail = '';
+            }
+        }
+        
+        function drag(evt){
+            if(avail == 'available'){
+                //Coloca o position absolute e as coordenadas
+                el.style.position="absolute";
+                el.style.left=evt.touches[0].clientX-el.clientWidth/2;
+                el.style.top=evt.touches[0].clientY-el.clientHeight/2;
+                
+                drg = el.getBoundingClientRect();
+                drgT = drg.top ;
+                drgB = drg.bottom ;
+                drgL = drg.left ;
+                drgR = drg.right ;
+            } else {}
+            evt.preventDefault();
+        }
+        
+        function drop(){
+        // update on drop
+
+        let c = 0;
+        drp.forEach(d => {
+            if(avail == 'available'){
+                if(d.top < drgT && d.left < drgL && d.bottom > drgB && d.right > drgR){
+                    dropbox[c].appendChild(el);
+                    el.style.position='';
+                    el.setAttribute('draggable','false');
+                    c++
+                }else{
+                    if (c == (drp.length-1)) {
+                        el.style.position='';
+                        el.style.left=dragIni.x;
+                        el.style.top=dragIni.y;
+                    }
+                }
+                c++ 
+            }else { }
+        })
+    }
     </script>
-</body>
+  </body>
+  
 </html>
