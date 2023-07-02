@@ -72,11 +72,11 @@
                 <p>Recuar</p>
             </div>
             <div id="energy">
-                <p id="energyRodada">0</p>
+                <p id="energyRodada">1</p>
             </div>
             <div id="finish">
-                <p>Terminar</p>
-                <p id="btnRodada">0/6</p>
+                <p id="labelRodada">Terminar</p>
+                <p id="btnRodada">1/6</p>
             </div>
         </div>
     </div>
@@ -86,6 +86,7 @@
     const local1 = document.querySelector('#local-1')
     const local2 = document.querySelector('#local-2')
 
+    //turno 1
     // Cartas Iniciais
     for (let index = 0; index < 3; index++) {
         let card = document.createElement('div')
@@ -98,74 +99,120 @@
     setTimeout(function() {
         local1.style.backgroundColor = "#FF0F0F"
     }, 2000)
-
+    
     setTimeout(function() {
         let card = document.createElement('div')
         card.setAttribute('id', 'dragbox')
         card.setAttribute('draggable', 'true')   
         
         hand.appendChild(card)
+    }, 2500)
+
+    //Turno 2
+    setTimeout( function() {
+        let energy = document.querySelector('#energyRodada')
+        energy.innerText = ''
+        energy.innerText = '2'
     }, 3000)
+    
+    setTimeout(function() {
+        local2.style.backgroundColor = "#00FF00"
+    }, 3500)
 
     setTimeout( function() {
         let btnRodada = document.querySelector('#btnRodada')
         btnRodada.innerText = ''
         btnRodada.innerText = '2/6'
-    },3500)
-
-    setTimeout( function() {
-        let energy = document.querySelector('#energyRodada')
-        energy.innerText = ''
-        energy.innerText = '2'
-    },4000)
-
-    setTimeout(function() {
-        local2.style.backgroundColor = "#00FF00"
-    }, 4500)
-
+    }, 4000)
+    
     setTimeout( function() {
         let card = document.createElement('div')
         card.setAttribute('id', 'dragbox')
         card.setAttribute('draggable', 'true')   
         
         hand.appendChild(card)
-    }, 5000)
+    }, 4500)
+
+    //turno 3
+    setTimeout( function() {
+        let energy = document.querySelector('#energyRodada')
+        energy.innerText = ''
+        energy.innerText = '3'
+    },5000)    
+
+    setTimeout(function() {
+        local2.style.backgroundColor = "#00FF00"
+    }, 5500)
 
     setTimeout( function() {
         let btnRodada = document.querySelector('#btnRodada')
         btnRodada.innerText = ''
         btnRodada.innerText = '3/6'
-    },5500)
-
-    setTimeout( function() {
-        let energy = document.querySelector('#energyRodada')
-        energy.innerText = ''
-        energy.innerText = '3'
     },6000)
-
-    setTimeout(function() {
-        local2.style.backgroundColor = "#00FF00"
-    }, 6500)
-
+    
     setTimeout( function() {
         let card = document.createElement('div')
         card.setAttribute('id', 'dragbox')
         card.setAttribute('draggable', 'true')   
         
         hand.appendChild(card)
-    }, 7000)
+    }, 6500)
+
+    //turno 4
+    setTimeout( function() {
+        let energy = document.querySelector('#energyRodada')
+        energy.innerText = ''
+        energy.innerText = '4'
+    },7000)    
 
     setTimeout( function() {
         let btnRodada = document.querySelector('#btnRodada')
         btnRodada.innerText = ''
         btnRodada.innerText = '4/6'
     },7500)
+    
+    setTimeout( function() {
+        let card = document.createElement('div')
+        card.setAttribute('id', 'dragbox')
+        card.setAttribute('draggable', 'true')   
+        
+        hand.appendChild(card)
+    }, 8000)
 
+    //turno 5
     setTimeout( function() {
         let energy = document.querySelector('#energyRodada')
         energy.innerText = ''
-        energy.innerText = '4'
-    },8000)
+        energy.innerText = '5'
+    },8500)    
+
+    setTimeout( function() {
+        let btnRodada = document.querySelector('#btnRodada')
+        btnRodada.innerText = ''
+        btnRodada.innerText = '5/6'
+    },9000)
+    //Mesnsagem de mão cheia
+
+    //turno 6
+    setTimeout( function() {
+        let energy = document.querySelector('#energyRodada')
+        energy.innerText = ''
+        energy.innerText = '5'
+    },8500)    
+
+    setTimeout( function() {
+        let btnRodada = document.querySelector('#btnRodada')
+        let labelRodada = document.querySelector('#labelRodada')
+
+        
+        labelRodada.innerText = ''
+        labelRodada.innerText = 'Ultimo Turno'
+      
+        btnRodada.innerText = ''
+        btnRodada.innerText = '6/6'
+    },9000)
+
+    //Mesnsagem de mão cheia
     
   </script>
   
